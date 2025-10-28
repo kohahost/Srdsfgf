@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiBot Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button class="menu-btn" title="Toggle Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#sponsors" title="Sponsors"><div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div><span class="nav-text">Sponsors</span></a></li>
+                    <li><a href="#wallets" title="Wallets"><div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><span class="nav-text">Wallets</span></a></li>
+                    <li><a href="#activities" class="active" title="Activities"><div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="nav-text">Activities</span></a></li>
+                    <li><a href="#settings" title="Settings"><div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div id="status-indicator" class="status-indicator offline">Bot Status: <span class="dot"></span> <span id="status-text">Offline</span></div>
+                <button id="start-btn" class="btn btn-control btn-start">Start</button>
+                <button id="stop-btn" class="btn btn-control btn-stop" disabled>Stop</button>
+            </div>
+        </aside>
+
+        <!-- ===== KONTEN UTAMA ===== -->
+        <main class="main-content">
+            <div id="sponsors" class="page-content hidden"><div class="section"><div class="section-header"><h2>Sponsors (Phrases)</h2></div><div class="section-body"><p>Masukkan semua mnemonic (phrases) di sini, satu per baris.</p><div class="form-group"><textarea id="phrases" rows="15" placeholder="word1 word2 ..."></textarea></div><button class="btn btn-save">Simpan Semua Pengaturan</button><p class="save-status"></p></div></div></div>
+            <div id="wallets" class="page-content hidden"><div class="section"><div class="section-header"><h2>Wallets (Penerima)</h2></div><div class="section-body"><p>Atur alamat wallet tujuan dan memo untuk semua transaksi.</p><div class="form-group"><label>Receiver Address</label><input type="text" id="receiver-address" placeholder="G..."></div><div class="form-group"><label>Memo</label><input type="text" id="memo" placeholder="Opsional"></div><button class="btn btn-save">Simpan Semua Pengaturan</button><p class="save-status"></p></div></div></div>
+            
+            <div id="activities" class="page-content"><div class="section full-height"><div class="section-header"><h2>Real-time Logs</h2></div><div class="section-body"><div id="log-output"></div></div></div></div>
+            
+            <div id="settings" class="page-content hidden"><div class="section"><div class="section-header"><h2>Telegram Bot Settings</h2></div><div class="section-body"><p>Atur notifikasi bot untuk menerima pemberitahuan penting.</p><div class="form-group"><label>Bot Token</label><input type="text" id="telegram-token" placeholder="Token dari @BotFather"></div><div class="form-group"><label>Chat ID</label><input type="text" id="telegram-chat-id" placeholder="ID dari @userinfobot"></div><button class="btn btn-save">Simpan Semua Pengaturan</button><p class="save-status"></p></div></div></div>
+        </main>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
