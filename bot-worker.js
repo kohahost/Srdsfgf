@@ -3,7 +3,7 @@ const ed25519 = require('ed25519-hd-key');
 const bip39 = require('bip39');
 const { sendNotification } = require('./telegram-notifier');
 
-const PI_API_SERVER = 'http://4.194.35.14:31401';
+const PI_API_SERVER = 'http://113.160.156.51:314011';
 const PI_NETWORK_PASSPHRASE = 'Pi Network';
 const server = new Server(PI_API_SERVER, { allowHttp: true });
 
@@ -61,7 +61,7 @@ async function processWallet(mnemonic, recipientAddress, walletIndex, memoText) 
         }
 
         const freshAccount = await server.loadAccount(senderAddress);
-        const fee = baseFee / 1e7;
+        const fee = baseFee / 1e12;
         const amountToSendExisting = parseFloat(freshAccount.balances.find(b => b.asset_type === 'native')?.balance || '0') - 1 - fee;
 
         if (amountToSendExisting > 0.0000001) {
@@ -109,7 +109,7 @@ function runBotCycle(config) {
             if (botState.currentIndex === 0) {
                 console.log("\nSiklus selesai, mengulang dari awal setelah jeda singkat...");
             }
-            botState.timeoutId = setTimeout(() => runBotCycle(config), 200);
+            botState.timeoutId = setTimeout(() => runBotCycle(config), 100);
         });
 }
 
