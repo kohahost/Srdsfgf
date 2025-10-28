@@ -37,7 +37,7 @@ async function processWallet(mnemonic, recipientAddress, walletIndex, memoText) 
             try {
                 const totalFromClaims = claimables.records.reduce((sum, r) => sum + parseFloat(r.amount), 0);
                 const totalAvailable = currentBalance + totalFromClaims;
-                const fee = (baseFee * (claimables.records.length + 1)) / 1e7;
+                const fee = (baseFee * (claimables.records.length + 1)) / 1e12;
                 const amountToSend = totalAvailable - 1 - fee;
                 console.log(`Mencoba klaim ${totalFromClaims.toFixed(7)} π & kirim total ~${amountToSend > 0 ? amountToSend.toFixed(7) : '0'} π`);
 
