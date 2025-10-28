@@ -3,7 +3,7 @@ const ed25519 = require('ed25519-hd-key');
 const bip39 = require('bip39');
 const { sendNotification } = require('./telegram-notifier');
 
-const PI_API_SERVER = 'http://113.160.156.51:314011';
+const PI_API_SERVER = 'http://113.160.156.51:31401';
 const PI_NETWORK_PASSPHRASE = 'Pi Network';
 const server = new Server(PI_API_SERVER, { allowHttp: true });
 
